@@ -5,33 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
 import allReducers from './reducers';
+import {Provider} from 'react-redux'
 
 let store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-// const increment = () => {
-//   return {
-//     type: 'INCREMENT'
-//   }
-// }
-// const decrement = () => {
-//   return {
-//     type: 'DECREMENT'
-//   }
-// }
-
-
-// store.subscribe(() => console.log(store.getState()))
-
-// store.dispatch(increment())
 
 ReactDOM.render(
+  <Provider store={store}>
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
+
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
 reportWebVitals();
