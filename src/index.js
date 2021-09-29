@@ -3,6 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux';
+
+let store = createStore(counter)
+
+const increment = () => {
+  return {
+    type: 'INCREMENT'
+  }
+}
+const decrement = () => {
+  return {
+    type: 'DECREMENT'
+  }
+}
+
+
+store.subscribe(() => console.log(store.getState()))
+
+store.dispatch(increment())
 
 ReactDOM.render(
   <React.StrictMode>
